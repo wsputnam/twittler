@@ -1,0 +1,14 @@
+.top {
+	width: @content-width;
+	margin: auto;
+}
+header {
+	background: url(twittler.png);
+	height: 100px;
+	width: 85%;
+}
+#tweets {
+  background-color: blue;
+  height: 100px;
+  width: 90%;
+}
