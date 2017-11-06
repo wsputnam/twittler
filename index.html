@@ -33,7 +33,7 @@
           var $tweet = $('<div></div>');
           var date = tweet.created_at;
           $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + date);
-          $tweet.appendTo($('#tweets')); // make prepend so new tweets show up at top?
+          $tweet.prependTo($('#tweets')); // make prepend so new tweets show up at top?
           index -= 1;
         }
         function checkNewTweets() {
@@ -51,9 +51,9 @@
 
         // alert message when new tweet button is clicked
 
-        //$('#new tweets').on('click', function() {
-        //  alert('New tweets are on the way!');
-        //});
+        $('#new tweets').on('click', function() {
+          alert('New tweets are on the way!');
+        });
 
       // need a way to store tweets as they are generated
       
