@@ -31,7 +31,8 @@
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
+          var date = tweet.created_at;
+          $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + date);
           $tweet.appendTo($('#tweets')); // make prepend so new tweets show up at top?
           index -= 1;
         }
@@ -47,6 +48,12 @@
           }
         }
         $('#new tweets').on('click', showNewTweets);
+
+        // alert message when new tweet button is clicked
+
+        //$('#new tweets').on('click', function() {
+        //  alert('New tweets are on the way!');
+        //});
 
       // need a way to store tweets as they are generated
       
