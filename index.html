@@ -19,6 +19,7 @@
      <h2>See Tweets</h2>
   </section>
   <section id="tweets"></section>
+  <button id="new tweets">See new tweets</button>
 
     <script>
 
@@ -31,10 +32,34 @@
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
           $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($('#tweets'));
+          $tweet.appendTo($('#tweets')); // make prepend so new tweets show up at top?
           index -= 1;
         }
+        function checkNewTweets() {
+          tweetCount = counter();
+        }
 
+        // rough draft to generate new tweets from js files
+        function showNewTweets() {
+          for (var i = streams.home.length; i < tweetCount; i++) {
+            var $tweet = $('<div></div>');
+            $tweet.appendTo($('#tweets'));
+          }
+        }
+        $('#new tweets').on('click', showNewTweets);
+
+      // need a way to store tweets as they are generated
+      
+
+
+      // generate new tweets and display them when user clicks button
+
+
+
+
+      
+
+       
       });
 
     </script>

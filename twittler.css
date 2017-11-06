@@ -3,12 +3,13 @@
 	margin: auto;
 }
 header {
-	background: url(twittler.png);
+	background-image: url("/../../downloads/twittler.png");
 	height: 100px;
 	width: 85%;
+	text-align: center;
 }
 #tweets {
-  background-color: rgb(0,125,125);
+  background-color: rgba(0,125,150,0.5);
   height: 100%;
-  width: 90%;
+  width: 75%;
 }
