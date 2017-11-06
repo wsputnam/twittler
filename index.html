@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-   <link href="twittler.css" rel="stylesheet"/>
    <script src="jquery.js"></script>
    <script src="data_generator.js"></script>
+   <link href="twittler.css" rel="stylesheet" type="text/css"/>
+   <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet" type="text/css">
+   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css">
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet" type="text/css">
   </head>
   <body>
    <header>
     <h1>
     <div class="top">Twittler</div>
     </h1>
-    <button>Welcome to Twitter></button>
+    <div>Welcome to Twitter</div>
   </header>
   <section>
    <span>Home</span>
@@ -30,6 +33,7 @@
         $body.html('');
 
         var index = streams.home.length - 1;
+        
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
@@ -38,6 +42,7 @@
           $tweet.prependTo($('#tweets')); // make prepend so new tweets show up at top?
           index -= 1;
         }
+
         function checkNewTweets() {
           tweetCount = counter();
         }
@@ -57,23 +62,32 @@
           alert('New tweets are on the way!');
         });
 
+        $('#new tweets').on('click', showNewTweets);
+
       // need a way to store tweets as they are generated
       
 
 
       // generate new tweets and display them when user clicks button
-     
+       $('#new tweets').on('click', function() {
+         var $tweet = $('<div></div>');
+         var date = tweet.created_at; // not sure about this one
+         $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + date);
+         $tweet.prependTo($('#tweets'));
+         index -= 1;
+       });
 
 
      // new tweet added to list in the input button
 
+ 
+    });
+  
+  // need to display new tweets when button is pressed, not only after document is ready
+   function showNewTweets() {
+    
 
-
-
-      
-
-       
-      });
+   }
 
     </script>
   </body>

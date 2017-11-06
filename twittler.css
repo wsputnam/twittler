@@ -3,14 +3,20 @@
 	margin: auto;
 }
 header {
-	background-image: url("/../../downloads/twittler.png");
+	background-color: #00e7ff;
 	height: 100px;
-	width: 85%;
+	width: 100%;
 	text-align: center;
 	color: blue;
+	font-family: 'Merriweather', serif;
 }
 #tweets {
   background-color: rgba(0,125,150,0.5);
   height: 100%;
   width: 75%;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.row {
+	font-family: 'Oswald', sans-serif;
 }
