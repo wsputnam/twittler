@@ -11,10 +11,11 @@ header {
 	font-family: 'Merriweather', serif;
 }
 #tweets {
-  background-color: rgba(0,125,150,0.5);
+  background-color: rgba(0,125,160,0.4);
   height: 100%;
-  width: 75%;
+  width: 100%;
   font-family: 'Open Sans Condensed', sans-serif;
+  text-align: center;
 }
 
 .row {

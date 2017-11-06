@@ -16,10 +16,11 @@
     <div>Welcome to Twitter</div>
   </header>
   <section>
+   <img src="https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwi9xJvlrarXAhUR8mMKHcZeA9YQjhwIBQ&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FFile%3ATwitter_bird_logo_2012.svg&psig=AOvVaw1zaagojHsYrYD7_WYRepJn&ust=1510071752833317" alt="Twitter Bird">
    <span>Home</span>
    </section>
    <section class="row">
-     <h2>See Tweets</h2>
+     <h2>New Tweets</h2>
   </section>
 
   <div><input><button>Post new tweets</button></div>
@@ -42,19 +43,6 @@
           $tweet.prependTo($('#tweets')); // make prepend so new tweets show up at top?
           index -= 1;
         }
-
-        function checkNewTweets() {
-          tweetCount = counter();
-        }
-
-        // rough draft to generate new tweets from js files
-        //function showNewTweets() {
-          //for (var i = streams.home.length; i < tweetCount; i++) {
-           // var $tweet = $('<div></div>');
-            //$tweet.appendTo($('#tweets'));
-          //}
-        //}
-        //$('#new tweets').on('click', showNewTweets);
 
         // alert message when new tweet button is clicked
 
