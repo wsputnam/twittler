@@ -37,7 +37,7 @@ img {
 
 
 
-#container {
+.container {
 	display: block;
 	height: 50px;
 	background-color: #EEF4ED;
