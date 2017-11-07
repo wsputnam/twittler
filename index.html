@@ -23,8 +23,6 @@
 
     <script>
      var totalTweets = 0; //total tweets on page
-     var counter = 0; // tweets generated but not on page
-     var display = 0; // difference between total tweets and those not yet on page
 
       // beginning of page loading with document.ready
       $(document).ready(function(){
@@ -64,14 +62,6 @@
       index++;
      }
    }
-
-      // can check for tweets every few milliseconds and later post them when the button is pressed 
-      function checkForTweets() {
-        counter = streams.home.length - 1;
-        display = counter - totalTweets;
-        setTimeout(checkForTweets, 200);
-      }
-      checkForTweets();
     
 
     
@@ -85,7 +75,6 @@
         $tweet.html("<span class='container'>@" + "<span class='tweet_user'>" + userName + "</span>" + ': ' + name[i].message + '. Posted on ' + name[i].created_at + "</span>");
         $tweet.prependTo($('#tweets'));
         totalTweets++;
-        display -= 1;
       }
     });
 
