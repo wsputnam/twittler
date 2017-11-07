@@ -20,8 +20,9 @@
      <h2>New Tweets</h2>
   </section>
 
-  <div><input><button>Post new tweets</button></div>
-  <section id="tweets"></section>
+  <div><input id="user_writes"><button>Post new tweets</button></div>
+  <div id="tweets"></div>
+  <div id="individual_person_tweets"></div>
   <button id="newTweets">See new tweets</button>
 
     <script>
@@ -39,7 +40,7 @@
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
           var date = tweet.created_at;
-          $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + date);
+          $tweet.html('@' + "<span class='tweet_user'>" + tweet.user + "</span>" + ': ' + tweet.message + ' ' + date);
           $tweet.prependTo($('#tweets')); // make prepend so new tweets show up at top?
           totalTweets++;
           index -= 1;
@@ -51,30 +52,41 @@
           alert('New tweets are on the way!');
         });
 
-        $('#newTweets').on('click', showNewTweets);
+        $('#newTweets').on('click', showNewTweets); // generate new tweets when user clicks button
 
       // need a way to store tweets as they are generated
       
       function checkForTweets() {
         counter = streams.home.length - 1;
         display = counter - totalTweets;
-        setTimeout(checkForTweets, 100);
+        setTimeout(checkForTweets, 1500);
       }
       checkForTweets();
-
-
-      // generate new tweets and display them when user clicks button
-       //$('#newTweets').on('click', function() {
-        // var $tweet = $('<div></div>');
-        // var date = tweet.created_at; // not sure about this one
-        // $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + date);
-        // $tweet.prependTo($('#tweets'));
-        // index -= 1;
-       //});
+    
+    // see user's tweets when clicked
+    $('.tweet_user').on('click', function() {
+      var userName = $(this).text();
+      var name = streams.users[userName];
+      for (var i = 0; i < name.length; i++) {
+        var $tweet = $('<div></div>');
+        $tweet.html('@' + "<span class='tweet_user'>" + userName + "</span>" + ': ' + name[i].message + ' ' + date);
+        $('#tweets').slideUp();
+        $('#individual_person_tweets').slideDown();
+        $tweet.prependTo($('#individual_person_tweets'));
+        totalTweets++;
+        display -= 1;
+      }
+    });
 
 
      // new tweet added to list in the input button
-
+     $('#user_writes').on('input', function() {
+       var $tweet = ('<div></div>');
+       $tweet.html('@' + "span class='tweet_user'>guest</span>" + ': ' + ':text' + new Date());
+       $tweet.prependTo($('#tweets'));
+       totalTweets++;
+       display -= 1;
+     });
  
     });
   
@@ -83,8 +95,7 @@
      while (display >= 1) {
       var tweet = streams.home[display];
       var $tweet = $('<div></div>');
-      var date = tweet.created_at;
-      $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + new Date());
+      $tweet.html('@' + "<span class='tweet_user'>" + tweet.user + "</span>" + ': ' + tweet.message + ' ' + new Date());
       $tweet.prependTo($('#tweets'));
       totalTweets++;
       display -= 1;

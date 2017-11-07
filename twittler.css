@@ -21,3 +21,8 @@ header {
 .row {
 	font-family: 'Oswald', sans-serif;
 }
+
+.tweet_user {
+	color: blue;
+	text-decoration: underline;
+}
