@@ -15,14 +15,10 @@
   <section>
    <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Twitter_bird_logo_2012.svg" alt="Twitter Bird"></img>
    </section>
-   <section class="row">
-     <h2>New Tweets</h2>
-  </section>
 
-  <div><input id="user_writes"><button>Post new tweets</button></div>
+  <div class="row"><button id="newTweetsButton">Post new tweets</button></div>
   <div id="tweets"></div>
   <div id="individual_person_tweets"></div>
-  <button id="newTweets">See new tweets</button>
 
     <script>
      var totalTweets = 0;
@@ -47,11 +43,11 @@
 
         // alert message when new tweet button is clicked
 
-        $('#newTweets').on('click', function() {
+        $('#newTweetsButton').on('click', function() {
           alert('New tweets are on the way!');
         });
 
-        $('#newTweets').on('click', showNewTweets); // generate new tweets when user clicks button
+        $('#newTweetsButton').on('click', showNewTweets); // generate new tweets when user clicks button
 
       // need a way to store tweets as they are generated
       

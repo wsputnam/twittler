@@ -7,19 +7,26 @@ body {
 	margin: auto;
 }
 header {
-	height: 85%;
 	width: 100%;
 	text-align: center;
 	margin: 0 0 30px 0;
 	font-family: 'Merriweather', serif;
-	background-color: rgba(25,125,150,0.5);
 }
 h1 {
-	color: blue;
+	color: #4c4c9f;
 	font-size: 75px;
 }
 img {
 	display: inline-block;
+	float: right;
+}
+#newTweetsButton {
+    border-style: dotted;
+    margin-left: 30%;
+    margin-right: 30%;
+    width: 15%;
+    height: 15%;
+    font-size: 20px;
 }
 
 #tweets {
@@ -27,6 +34,7 @@ img {
   width: 100%;
   font-family: 'Open Sans Condensed', sans-serif;
   text-align: center;
+  font-size: 20px;
 }
 
 
