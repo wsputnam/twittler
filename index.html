@@ -49,12 +49,11 @@
 
         $('#newTweetsButton').on('click', showNewTweets); // generate new tweets when user clicks button
 
-      // need a way to store tweets as they are generated
-      
+      // can check for tweets every few milliseconds and later post them when the button is pressed 
       function checkForTweets() {
         counter = streams.home.length - 1;
         display = counter - totalTweets;
-        setTimeout(checkForTweets, 1500);
+        setTimeout(checkForTweets, 200);
       }
       checkForTweets();
     
@@ -75,13 +74,15 @@
 
 
      // new tweet added to list in the input button
-     $('#user_writes').on('input', function() {
-       var $tweet = ('<div></div>');
-       $tweet.html("<span id='container'>@" + "span class='tweet_user'>guest</span>" + ': ' + ':text' + new Date() + "</span>");
-       $tweet.prependTo($('#tweets'));
-       totalTweets++;
-       display -= 1;
-     });
+     //$('#user_writes').on('input', function() {
+       //var $tweet = ('<div></div>');  
+       //$tweet.html("<span id='container'>@" + "span class='tweet_user'>guest</span>" + ': ' + ':text' + new Date() + "</span>");
+       //$tweet.prependTo($('#tweets'));
+       //totalTweets++;
+       //display -= 1;
+     //});
+
+     // not using above function for now; got rid of input button, might come back to it later after I've fixed timeline issue
 
    function showNewTweets() {
      while (display >= 1) {
