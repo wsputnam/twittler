@@ -21,13 +21,13 @@
   <div id="individual_person_tweets"></div>
 
     <script>
-     var totalTweets = 0;
-     var counter = 0;
-     var display = 0;
+     var totalTweets = 0; //total tweets on page
+     var counter = 0; // tweets generated but not on page
+     var display = 0; // difference between total tweets and those not yet on page
 
       $(document).ready(function(){
-        var $body = $('#tweets');
-        $body.html('');
+        //var $body = $('#tweets');
+        //$body.html('');
 
         var index = streams.home.length - 1;
         

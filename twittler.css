@@ -37,6 +37,14 @@ img {
   font-size: 20px;
 }
 
+#individual_person_tweets {
+  height: 100%;
+  width: 100%;
+  font-family: 'Open Sans Condensed', sans-serif;
+  text-align: center;
+  font-size: 20px;
+}
+
 
 .row {
 	font-family: 'Oswald', sans-serif;
