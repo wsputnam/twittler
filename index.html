@@ -20,6 +20,7 @@
   <div id="tweets"></div>
   <div id="individual_person_tweets"></div>
 
+
     <script>
      var totalTweets = 0; //total tweets on page
      var counter = 0; // tweets generated but not on page
@@ -47,7 +48,7 @@
           alert('New tweets are on the way!');
         });
 
-        $('#newTweetsButton').on('click', showNewTweets); // generate new tweets when user clicks button
+        $('#newTweetsButton').on('click', showNewTweets); // generate new tweets when user clicks button, uses function below
 
       // can check for tweets every few milliseconds and later post them when the button is pressed 
       function checkForTweets() {
@@ -58,15 +59,15 @@
       checkForTweets();
     
     // see user's tweets when clicked
-    $('.tweet_user').on('click', function() {
+     $('.tweet_user').on('click', function() {
       var userName = $(this).text();
       var name = streams.users[userName];
       for (var i = 0; i < name.length; i++) {
         var $tweet = $('<div></div>');
-        $tweet.html("<span id='container'>@" + "<span class='tweet_user'>" + userName + "</span>" + ': ' + name[i].message + ' ' + new Date() + "</span>");
+        $tweet.html("<span id='container'>@" + "<span class='tweet_user'>" + userName + "</span>" + ': ' + name[i].message + ' ' + name[i].created_at + "</span>");
         $('#tweets').slideUp();
         $('#individual_person_tweets').slideDown();
-        $tweet.prependTo($('#individual_person_tweets'));
+        $tweet.prependTo($('#individual_person_tweets')).slideDown();
         totalTweets++;
         display -= 1;
       }
@@ -83,25 +84,22 @@
      //});
 
      // not using above function for now; got rid of input button, might come back to it later after I've fixed timeline issue
+  
+ 
+  });
 
-   function showNewTweets() {
+  // adds new tweets to tweets section
+  function showNewTweets() {
      while (display >= 1) {
       var tweet = streams.home[display];
       var $tweet = $('<div></div>');
       $tweet.html("<span id='container'>@" + "<span class='tweet_user'>" + tweet.user + "</span>" + ': ' + tweet.message + ' ' + new Date() + "</span>");
-      $tweet.prependTo($('#tweets'));
+      $tweet.prependTo($('#tweets')).fadeIn();
       totalTweets++;
       display -= 1;
      }
    }
- 
-    });
   
-  // need to display new tweets when button is pressed, not only after document is ready
-  
-
-   // problems: date appears the same even after pressing the button
-   // other problem: the tweet list keeps getting longer (need to delete old tweets)
 
     </script>
   </body>
