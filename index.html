@@ -18,7 +18,6 @@
 
   <div class="row"><button id="newTweetsButton">Refresh Tweet Feed</button></div>
   <div id="tweets"></div>
-  <div id="individual_person_tweets"></div>
 
 
     <script>
@@ -26,8 +25,6 @@
 
       // beginning of page loading with document.ready
       $(document).ready(function(){
-        //var $body = $('#tweets');
-        //$body.html('');
 
         var index = streams.home.length - 1;
         
@@ -42,12 +39,12 @@
         }
 
         // alert message when new tweet button is clicked
-
         $('#newTweetsButton').on('click', function() {
           alert('New tweets are on the way!');
         });
-
-        $('.row').on('click', '#newTweetsButton', showNewTweets); // generate new tweets when user clicks button
+        
+        // generate new tweets when user clicks button
+        $('.row').on('click', '#newTweetsButton', showNewTweets);
 
     // adds new tweets to tweets section
     function showNewTweets() {
