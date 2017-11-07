@@ -26,7 +26,7 @@
      var counter = 0; // tweets generated but not on page
      var display = 0; // difference between total tweets and those not yet on page
 
-
+      // beginning of page loading with document.ready
       $(document).ready(function(){
         //var $body = $('#tweets');
         //$body.html('');
@@ -37,8 +37,8 @@
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
           var date = tweet.created_at;
-          $tweet.html("<span class='container'>@" + "<span class='tweet_user'>" + tweet.user + "</span>" + ': ' + tweet.message + ' ' + date + "</span>");
-          $tweet.prependTo($('#tweets')); // make prepend so new tweets show up at top?
+          $tweet.html("<span class='container'>@" + "<span class='tweet_user'>" + tweet.user + "</span>" + ': ' + tweet.message + '. Posted on ' + date + "</span>");
+          $tweet.prependTo($('#tweets')).fadeIn(); 
           totalTweets++;
           index -= 1;
         }
@@ -49,7 +49,21 @@
           alert('New tweets are on the way!');
         });
 
-        $('#newTweetsButton').on('click', showNewTweets); // generate new tweets when user clicks button, uses function below
+        $('.row').on('click', '#newTweetsButton', showNewTweets); // generate new tweets when user clicks button
+
+    // adds new tweets to tweets section
+    function showNewTweets() {
+     var index = 0;
+
+     while (index < streams.home.length) {
+      var tweet = streams.home[index];
+      var $tweet = $('<div></div>');
+      $tweet.html("<span class='container'>@" + "<span class='tweet_user'>" + tweet.user + "</span>" + ': ' + tweet.message + '. Posted on ' + tweet.created_at + "</span>");
+      $tweet.prependTo($('#tweets')).fadeIn();
+      totalTweets++;
+      index++;
+     }
+   }
 
       // can check for tweets every few milliseconds and later post them when the button is pressed 
       function checkForTweets() {
@@ -60,50 +74,23 @@
       checkForTweets();
     
 
-
-
-     // new tweet added to list in the input button
-     //$('#user_writes').on('input', function() {
-       //var $tweet = ('<div></div>');  
-       //$tweet.html("<span id='container'>@" + "span class='tweet_user'>guest</span>" + ': ' + ':text' + new Date() + "</span>");
-       //$tweet.prependTo($('#tweets'));
-       //totalTweets++;
-       //display -= 1;
-     //});
-
-     // not using above function for now; got rid of input button, might come back to it later after I've fixed timeline issue
-
-
+    
     // see user's tweets when clicked
     $('#tweets').on('click', '.tweet_user', function() {
     var userName = $(this).text();
     var name = streams.users[userName]; // this is all of the selected person's texts
+    $('#tweets').html('');
       for (var i = 0; i < name.length; i++) {
         var $tweet = $('<div></div>');
-        $tweet.html("<span class='container'>@" + "<span class='tweet_user'>" + userName + "</span>" + ': ' + name[i].message + ' ' + name[i].created_at + "</span>");
-        $('#tweets').slideUp();
-        $('#individual_person_tweets').slideDown();
-        $tweet.prependTo($('#individual_person_tweets')).slideDown();
+        $tweet.html("<span class='container'>@" + "<span class='tweet_user'>" + userName + "</span>" + ': ' + name[i].message + '. Posted on ' + name[i].created_at + "</span>");
+        $tweet.prependTo($('#tweets'));
         totalTweets++;
         display -= 1;
       }
     });
 
-  // adds new tweets to tweets section
-  function showNewTweets() {
-     var index = 0;
-
-     while (index < streams.home.length) {
-      var tweet = streams.home[index];
-      var $tweet = $('<div></div>');
-      $tweet.html("<span class='container'>@" + "<span class='tweet_user'>" + tweet.user + "</span>" + ': ' + tweet.message + ' ' + tweet.created_at + "</span>");
-      $tweet.prependTo($('#tweets')).fadeIn();
-      totalTweets++;
-      index++;
-     }
-   }
  
-  });
+  }); // end of page loading with document.ready
   
 
   

@@ -1,6 +1,11 @@
+
+/* Background */
+
 body {
 	background-color: #8DA9C4;
 }
+
+/* Title */
 
 header {
 	width: 100%;
@@ -12,10 +17,15 @@ h1 {
 	color: #4c4c9f;
 	font-size: 75px;
 }
+
+/* Twitter Bird */ 
+
 img {
 	display: inline-block;
 	float: right;
 }
+
+/* Button to refresh tweets */
 #newTweetsButton {
     border-style: dotted;
     margin-left: 30%;
@@ -26,6 +36,8 @@ img {
     font-family: 'Oswald', sans-serif;
 }
 
+/* Tweet Feed */
+
 #tweets {
   height: 100%;
   width: 100%;
@@ -34,7 +46,6 @@ img {
   font-size: 20px;
   margin-width: 20%;
 }
-
 
 
 .container {
